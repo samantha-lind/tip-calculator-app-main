@@ -13,6 +13,11 @@ body {
     font-family: "Space Mono", monospace;
 }
 
+.attribution {
+    font-size: 12px;
+    text-align: center;
+}
+
 /*components*/
 button {
     font-family: "Space Mono", monospace;
@@ -120,6 +125,7 @@ input:focus {
     width: 80px;
     margin: 9px 9px 0 0;
     color: var(--dark-cyan);
+    border-radius: 5px;
 }
 
 .custom::placeholder {
@@ -225,4 +231,51 @@ label {
 .tip-amount {
     padding-bottom: 35px;
     margin-top: -10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .content {
+        width: 100vw;
+        padding: unset;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        margin: unset;
+        margin-bottom: 30px;
+    }
+
+    .calculator,
+    .results {
+        width: 80vw;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .button-reset {
+        margin-top: 20px;
+    }
+
+    .result {
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
+    .button-tip {
+        width: 140px;
+    }
+
+    .custom {
+        width: 130px;
+    }
+
+    .custom::placeholder {
+        text-align: center;
+    }
+
+    .tip {
+        justify-content: space-between;
+    }
 }
