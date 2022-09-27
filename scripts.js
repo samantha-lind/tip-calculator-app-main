@@ -44,8 +44,12 @@ let numOfPeople = 1;
 function updateNumOfPeople() {
     numOfPeople = document.getElementById("people").value;
     resetButton.disabled = false;
-    tipResult();
-    billResult();
+    if (Number(numOfPeople) > 0) {
+        tipResult();
+        billResult();
+    } else {
+        error();
+    }
 }
 
 let tipAmountPp = document.getElementById("tip-pp");
@@ -63,5 +67,17 @@ function billResult() {
     let billCost = Number(billAmount) + Number(totalTip);
     let billCostPp = billCost / numOfPeople;
     billCostPp = billCostPp.toFixed(2);
-    billAmountPp.textContent = `$${billCostPp}`;
+    if (
+        billCostPp !== undefined &&
+        billCostPp !== NaN &&
+        billCostPp !== Infinity
+    );
+    {
+        billAmountPp.textContent = `$${billCostPp}`;
+    }
+}
+
+function error() {
+    billAmountPp.textContent = `Error`;
+    tipAmountPp.textContent = `Error`;
 }
