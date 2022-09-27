@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll(".button-tip");
 buttons.forEach((btn) => {
     btn.addEventListener("click", function handleClick() {
+        removeSelected();
         setTip(this.value);
         if (btn.classList.contains("selected")) {
             btn.classList.remove("selected");
@@ -9,6 +10,13 @@ buttons.forEach((btn) => {
         }
     });
 });
+
+function removeSelected() {
+    const selected = document.querySelectorAll(".selected");
+    selected.forEach((sel) => {
+        sel.classList.remove("selected");
+    });
+}
 
 let billAmount = 0.0;
 let resetButton = document.getElementById("reset");
@@ -19,6 +27,7 @@ function setBillAmount() {
 }
 
 function customTip() {
+    removeSelected();
     customTipAmount = document.getElementById("custom-tip").value;
     customTipAmount /= 100;
     setTip(customTipAmount);
@@ -27,6 +36,7 @@ function customTip() {
 let tipAmount = 0;
 function setTip(tip) {
     tipAmount = tip;
+    console.log(tip);
     resetButton.disabled = false;
 }
 
