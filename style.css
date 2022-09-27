@@ -10,17 +10,16 @@
 
 body {
     background-color: var(--light-grayish-cyan);
+}
+
+body,
+button,
+input {
     font-family: "Space Mono", monospace;
 }
 
-.attribution {
-    font-size: 12px;
-    text-align: center;
-}
-
-/*components*/
+/*buttons*/
 button {
-    font-family: "Space Mono", monospace;
     border: none;
     border-radius: 5px;
     transition: all 100ms ease-in-out;
@@ -74,6 +73,19 @@ button:disabled {
     background-color: hsl(183, 100%, 20%);
 }
 
+.custom {
+    font-size: 20px;
+    width: 80px;
+    margin: 9px 9px 0 0;
+    color: var(--dark-cyan);
+    border-radius: 5px;
+}
+
+.custom::placeholder {
+    color: var(--dark-grayish-cyan);
+}
+
+/*calculator*/
 .labels {
     display: flex;
     flex-direction: column;
@@ -94,7 +106,6 @@ input {
     width: 95%;
     margin-bottom: 30px;
     padding: 5px;
-    font-family: "Space Mono", monospace;
     text-align: right;
 }
 
@@ -102,14 +113,12 @@ input::placeholder {
     color: var(--light-grayish-cyan);
 }
 
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -118,18 +127,6 @@ input:hover,
 input:focus {
     cursor: pointer;
     outline-color: var(--strong-cyan);
-}
-
-.custom {
-    font-size: 20px;
-    width: 80px;
-    margin: 9px 9px 0 0;
-    color: var(--dark-cyan);
-    border-radius: 5px;
-}
-
-.custom::placeholder {
-    color: var(--dark-grayish-cyan);
 }
 
 .bill,
@@ -164,13 +161,17 @@ label {
 }
 
 /*layout*/
+
+.attribution {
+    font-size: 12px;
+    text-align: center;
+}
 .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    font-family: "Space Mono", monospace;
     font-size: 16px;
     margin: auto;
 }
@@ -221,6 +222,8 @@ label {
     justify-content: space-between;
 }
 
+/*results*/
+
 .amounts {
     text-align: right;
     font-size: 35px;
@@ -233,6 +236,7 @@ label {
     margin-top: -10px;
 }
 
+/*media queries*/
 @media only screen and (max-width: 1000px) {
     .content {
         width: 100vw;
